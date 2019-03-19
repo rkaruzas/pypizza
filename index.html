@@ -1,0 +1,32 @@
+<html>
+    <head>
+	<title>PyPizza</title>
+    </head>
+
+    <body>
+	<h1>Payment</h1>
+	<p>Choose your pizza order:<p>
+    </body>
+	
+
+
+
+    <script src="https://www.paypal.com/sdk/js?client-id=sb"></script>
+    <script>paypal.Buttons().render('body');</script>
+
+
+    <script>
+        var CREATE_PAYMET_URL = '';
+        var EXECUTE_PAYMET_URL = '';
+	
+	paypal.Button.render{{
+	    env: 'sandbox',
+	    commit: true,
+	    payment: function(){
+		return
+		    paypal.request.post(CREATE_PAYMENT_URL).then(function(data){
+		       return data.id;
+		}};
+	    },
+    </script>
+</html>
